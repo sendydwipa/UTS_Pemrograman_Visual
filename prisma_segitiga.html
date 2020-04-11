@@ -1,0 +1,172 @@
+<html>
+    <head>
+        <title>Menghitung Prisma Segitiga</title>
+        <style>
+            .kiri{
+                width: 120px;
+                float: left;
+            };
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript" language="javascript">
+            const LAPrisma =(pst)=>{
+                var alas_segitiga = parseFloat(document.pst.a_segitiga.value);
+                var tinggi_segitiga = parseFloat(document.pst.t_segitiga.value);
+                // var l_alas_sgt = parseFloat(document.pst.la_segitiga.value);
+
+                var la_prisma = 0.5 * alas_segitiga * tinggi_segitiga;
+                document.pst.Hasil_luas_alas.value = la_prisma;
+            }
+
+            const LSPrisma =(pst)=>{
+                var n_ab = parseFloat(document.pst.ab.value);
+                var n_bc = parseFloat(document.pst.bc.value);
+                var n_ac = parseFloat(document.pst.ac.value);
+                var tinggi_p = parseFloat(document.pst.tprisma.value);
+                var hasil = n_ab*tinggi_p + n_bc*tinggi_p + n_ac*tinggi_p;
+
+                document.pst.Hasil_luas_selimut.value = hasil;
+            }
+
+            const Perhitungan =(pst)=>{
+                var la_sgt = parseFloat(document.pst.Hasil_luas_alas.value);
+                var lp_prisma = parseFloat(document.pst.Hasil_luas_selimut.value);
+                var tinggi_p = parseFloat(document.pst.tprisma.value);
+                var volume = la_sgt*tinggi_p;
+                var luasPrisma = 2*la_sgt + lp_prisma;  
+
+                document.pst.luas_prisma.value = luasPrisma;
+                document.pst.volume_prisma.value = volume;
+            }
+        </script>  
+
+        <h2 style="text-align: center;">Menghitung Luas dan Volume Prisma Segitiga</h2>
+        <a href="home.html" style="float: right; margin-right: 20px;">Back to Home</a>
+        
+        <div style="width: 30%; float: left; padding-left: 10px;">
+            <h5>Gambar:</h5>
+            <img src="gambar/prisma_segitiga.png" alt="prisma segitiga" height="180px" width="190px">
+        </div>
+        <div style="width: 65%; float: left">
+            <h5>Rumus:</h5>
+            <p>Luas prisma = 2 x luas alas + luas selimut<br>
+                Volume = luas alas x tinggi prisma<br>
+                luas alas segitiga = 1/2 x alas segitiga x tinggi segitiga<br>
+                luas selimut = 3 x (panjang x lebar) atau AB x BE + BC x CF + AC x AD
+            </p>
+        </div>
+        <div style="clear: both;"></div>
+        <br><hr>
+
+        <form action="" name="pst">
+            <div style="padding-left: 10px">
+                <h4 style="text-align: center; margin-bottom: 5px;">Diketahui: </h4>
+                <div style="width: 50%; float: left">
+                    <h5>Menentukan luas segituga</h5>
+                    <div style="margin-bottom: 7px;">
+                        <div class="kiri">
+                            <label for="a_segitiga">alas segitiga</label>
+                        </div>
+                        <div class="kanan">
+                            <input type="text" name="a_segitiga" id="alas_sgt" placeholder="masukkan nilai">
+                        </div>
+                    </div>
+    
+                    <div style="margin-bottom: 7px;">
+                        <div class="kiri">
+                            <label for="t_segitiga">tinggi segitiga</label>
+                        </div>
+                        <div class="kanan">
+                            <input type="text" name="t_segitiga" id="tinggi_sgt" placeholder="masukkan nilai">
+                        </div>
+                    </div>
+        
+                    <div style="margin-bottom: 7px;">
+                        <div class="kiri">
+                            <!-- <select name="pilihan" id="">
+                                <option value="pilih">pilih kategori</option>
+                                <option value="luaskbs">Hitung luas</option>
+                                <option value="volumekbs">Hitung volume</option>
+                            </select> -->
+                        </div>
+                        <div class="kanan">
+                            <input type="button" name="cek" value="hitung" onclick="LAPrisma(pst)">
+                        </div>
+                    </div>
+    
+                    <h4 style="margin-bottom: 5px;">Luas Alas Prisma Segitiga</h4>
+                    <input type="text" name="Hasil_luas_alas" placeholder="input luas alas jika sudah ada">
+                </div>
+
+                <div style="width: 50%; float: left">
+                    <div style="width: 100%; border-left: 1px solid #000; padding-left: 10px; padding-bottom: 10px; margin-bottom: 10px;">
+                        <h5>Menentukan Luas Selimut Prisma</h5>
+                        <div style="margin-bottom: 7px;">
+                            <div class="kiri">
+                                <label for="ab">Nilai AB</label>
+                            </div>
+                            <div class="kanan">
+                                <input type="text" name="ab" placeholder="masukkan nilai">
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 7px;">
+                            <div class="kiri">
+                                <label for="bc">Nilai BC</label>
+                            </div>
+                            <div class="kanan">
+                                <input type="text" name="bc" placeholder="masukkan nilai">
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 7px;">
+                            <div class="kiri">
+                                <label for="ac">Nilai AC</label>
+                            </div>
+                            <div class="kanan">
+                                <input type="text" name="ac" placeholder="masukkan nilai">
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 7px;">
+                            <div class="kiri">
+                                <label for="tprisma">Tinggi Prisma</label>
+                            </div>
+                            <div class="kanan">
+                                <input type="text" name="tprisma" placeholder="masukkan nilai">
+                            </div>
+                        </div>
+                        <div>
+                            <input type="button" name="cek" value="hitung" onclick="LSPrisma(pst)">
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 5px;">Luas Selimut Prisma Segitiga</h4>
+                            <input type="text" name="Hasil_luas_selimut" placeholder="input luas alas jika sudah ada">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <!-- hasil -->
+            <h4 style="text-align: center;">Hasil Perhitungan</h4>
+            <div style="padding-left: 20px;">
+                <input type="button" value="hasil" name="hasil" onclick="Perhitungan(pst)" style="margin-bottom: 15px;">
+                <div style="margin-bottom: 7px;">
+                    <div class="kiri">
+                        <label for="luas_prisma">Luas Prisma</label>
+                    </div>
+                    <div class="kanan">
+                        <input type="text" name="luas_prisma" placeholder="Hasil luas Prisma">
+                    </div>
+                </div>
+                <div style="margin-bottom: 7px;">
+                    <div class="kiri">
+                        <label for="volume_prisma">Volume Prisma</label>
+                    </div>
+                    <div class="kanan">
+                        <input type="text" name="volume_prisma" placeholder="Hasil Volume Prisma">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

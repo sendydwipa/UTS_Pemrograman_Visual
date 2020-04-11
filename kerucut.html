@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title>Menghitung Kerucut</title>
+        <style>
+            .kiri{
+                width: 120px;
+                float: left;
+            };
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript" language="javascript">
+
+            const perhitungan =(krc)=>{
+                var jari = parseFloat(document.krc.r.value);
+                var tinggi = parseFloat(document.krc.t_kerucut.value);
+                var pilihannya = document.krc.pilihan.value; 
+                var l_alas = 3.14*Math.pow(jari,2);
+                var s = Math.sqrt(Math.pow(jari,2) + Math.pow(tinggi,2));
+                var hitung;
+                if(pilihannya == "luaskrc"){
+                    hitung = 3.14 * jari*(jari+s);
+                }else if(pilihannya == "volumekrc"){
+                    hitung = (1/3) * l_alas * tinggi;
+                }else{
+                    alert("error");
+                }
+                document.krc.hasil.value = hitung;
+            }
+        </script>  
+
+        <h2 style="text-align: center;">Menghitung Luas dan Volume Kerucut</h2>
+        <a href="home.html" style="float: right; margin-right: 20px;">Back to Home</a>
+        
+        <div style="width: 30%; float: left; padding-left: 10px;">
+            <h5>Gambar:</h5>
+            <img src="gambar/kerucut.jpg" alt="Kerucut height="120px" width="130px">
+        </div>
+        <div style="width: 65%; float: left">
+            <h5>Rumus:</h5>
+            <p>Luas Permukaan kerucut = &pi;r(r + s)<br>
+                Volume kerucut= 1/3 x luas alas x tinggi<br>
+                luas alas (lingkaran) = &pi;r<sup>2</sup><br>
+                Garis pelukis (s) = &radic;r<sup>2</sup> + t<sup>2</sup>
+            </p>
+        </div>
+        <div style="clear: both;"></div>
+        <br><hr>
+
+        <form action="" name="krc">
+            <div style="padding-left: 10px">
+                <h4 style="margin-bottom: 10px;">Diketahui: </h4>
+                <div style="margin-bottom: 7px;">
+                    <div class="kiri">
+                        <label for="r">jari-jari</label>
+                    </div>
+                    <div class="kanan">
+                        <input type="text" name="r" placeholder="masukkan nilai">
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 7px;">
+                    <div class="kiri">
+                        <label for="t_kerucut">tinggi kerucut</label>
+                    </div>
+                    <div class="kanan">
+                        <input type="text" name="t_kerucut" placeholder="masukkan nilai">
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 7px;">
+                    <div class="kiri">
+                        <select name="pilihan" onchange="perhitungan(krc)">
+                            <option value="pilih">pilih kategori</option>
+                            <option value="luaskrc">Luas Kerucut</option>
+                            <option value="volumekrc">Volume Kerucut</option>
+                        </select>
+                    </div>
+                    <!-- <div class="kanan">
+                        <input type="button" name="cek" value="hitung" onclick="LAPrisma(pst)">
+                    </div> -->
+                </div>
+                <div style="padding-top: 20px;">
+                    <h4 style="margin-bottom: 5px;">Hasil</h4>
+                    <input type="text" name="hasil">
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

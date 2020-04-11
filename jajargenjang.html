@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>Menghitung Jajargenjang</title>
+        <style>
+            .kiri{
+                width: 120px;
+                float: left;
+            };
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript" language="javascript">
+            const perhitungan =(jg)=>{
+                var nilai_ab = parseFloat(document.jg.ab.value);
+                var nilai_bc = parseFloat(document.jg.bc.value);
+                var nilai_t = parseFloat(document.jg.t.value);
+                var pilihannya = (document.jg.pilihan.value);
+                var hitung;
+                if(pilihannya == "luasjg"){
+                    hitung = nilai_ab*nilai_t;
+                }else if(pilihannya == "kelilingjg"){
+                    hitung = 2*(nilai_ab+nilai_bc);
+                }else{
+                    alert("maaf, anda belum memilih perhitungan")
+                }
+                document.jg.hasilp.value = hitung;
+            }
+        </script>  
+
+        <h2 style="text-align: center;">Menghitung Luas dan keliling Jajargenjang</h2>
+        <a href="home.html">Back to Home</a>
+        
+        <div style="width: 30%; float: left; padding-left: 10px;">
+            <h5>Gambar:</h5>
+            <img src="gambar/jajargenjang.png" alt="jajargenjang" height="100px" width="220px">
+        </div>
+        <div style="width: 50%; float: left">
+            <h5>Rumus:</h5>
+            <p>Luas = AB x t <br>
+                Keliling = 2(AB + BC)
+            </p>
+        </div>
+        <div style="clear: both;"></div>
+        <br><hr>
+        <form action="" name="jg">
+            <div class="jawaban" style="padding-left: 10px">
+                <h4 style="margin-bottom: 5px;">Diketahui: </h4>
+                <div style="margin-bottom: 7px;">
+                    <div class="kiri">
+                        <label for="ab">Nilai AB(alas)</label>
+                    </div>
+                    <div class="kanan">
+                        <input type="text" name="ab" placeholder="masukkan nilai">
+                    </div>
+                </div>
+    
+                <div style="margin-bottom: 7px;">
+                    <div class="kiri">
+                        <label for="bc">Nilai BC</label>
+                    </div>
+                    <div class="kanan">
+                        <input type="text" name="bc" placeholder="masukkan nilai">
+                    </div>
+                </div>
+    
+                <div style="margin-bottom: 7px;">
+                    <div class="kiri">
+                        <label for="t">Nilai tinggi(t)</label>
+                    </div>
+                    <div class="kanan">
+                        <input type="text" name="t" placeholder="masukkan nilai">
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 7px;">
+                    <div class="kiri">
+                        <select name="pilihan" id="" onchange="perhitungan(jg)">
+                            <option value="pilih">pilih kategori</option>
+                            <option value="luasjg">Hitung luas</option>
+                            <option value="kelilingjg">Hitung keliling</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="padding-top: 20px;">
+                    <h4 style="margin-bottom: 5px;">Hasil</h4>
+                    <input type="text" name="hasilp">
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
